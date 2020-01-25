@@ -16,4 +16,26 @@ describe('CREATE GROUP', () => {
        expect($('h1').getText()).equal('Create new Group');
     });
 
+    it('should fill "Group name" box', () => {
+        $('input[name="name"]').setValue('QA 10');
+    });
+
+    it('should choose "Access type" from dropdown menu', () => {
+        $('select[name="accessType"]').selectByVisibleText('All');
+    });
+
+    it('should fill "Group descri[ption" box', () => {
+        $('input[name="description"]').setValue('Занятия проходят по ссылке https://zoom.us/');
+    });
+
+    it('should click the Create button', () => {
+        $('button[type="submit"]').click();
+        browser.pause(5000);
+    });
+
+    it('should show success message "Group created"', () => {
+        browser.pause(2000);
+        expect($('h4[class="notification-title"]').getText()).equal('Group created');
+    });
+
 });

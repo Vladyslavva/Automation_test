@@ -43,7 +43,7 @@ describe('CREATE DAY REPORT', () => {
 
     it('should show success message "Diary created"', () => {
         browser.pause(2000);
-        expect($('h4[class="notification-title"]').getText()).equal("Diary created");
+        expect($('h4[class="notification-title"]').getText()).equal('Diary created');
     });
 
 });
