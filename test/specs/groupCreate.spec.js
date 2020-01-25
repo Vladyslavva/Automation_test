@@ -24,7 +24,7 @@ describe('CREATE GROUP', () => {
         $('select[name="accessType"]').selectByVisibleText('All');
     });
 
-    it('should fill "Group descri[ption" box', () => {
+    it('should fill "Group description" box', () => {
         $('input[name="description"]').setValue('Занятия проходят по ссылке https://zoom.us/');
     });
 
