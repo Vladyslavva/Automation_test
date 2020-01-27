@@ -16,7 +16,7 @@ describe('CREATE GROUP', () => {
        expect($('h1').getText()).equal('Create new Group');
     });
 
-    it('should fill "Group name" box', () => {
+    it('should fill "Group name" field', () => {
         $('input[name="name"]').setValue('QA 10');
     });
 
@@ -24,7 +24,7 @@ describe('CREATE GROUP', () => {
         $('select[name="accessType"]').selectByVisibleText('All');
     });
 
-    it('should fill "Group description" box', () => {
+    it('should fill "Group description" field', () => {
         $('input[name="description"]').setValue('Занятия проходят по ссылке https://zoom.us/');
     });
 

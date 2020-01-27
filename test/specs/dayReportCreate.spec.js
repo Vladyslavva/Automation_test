@@ -17,11 +17,11 @@ describe('CREATE DAY REPORT', () => {
   });
 
   it('should mark needed checkboxes from "Marks to your daily report"', () => {
-        $('input[id="input-[1]"]').click();
-        $('input[id="input-[3]"]').click();
-        $('input[id="input-[4]"]').click();
-        $('input[id="input-[5]"]').click();
-        $('input[id="input-[6]"]').click();
+        $('input[label="I understood everything"]').click();
+        $('input[label="Watched lectures"]').click();
+        $('input[label="Read documentation"]').click();
+        $('input[label="Code practice"]').click();
+        $('input[label="Quiz practice"]').click();
     });
   it('should choose "What is your morale?" from dropdown menu', () => {
         $('select[name="morale"]').selectByVisibleText('7');
