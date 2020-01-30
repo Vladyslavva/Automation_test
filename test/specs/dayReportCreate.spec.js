@@ -1,49 +1,50 @@
 const { expect } = require('chai');
 const { URL_LOGIN } = require('./register_data');
+const {admin, selectors, pageDayReportCreate} = require('./dayReportCreate_data');
 
 describe('CREATE DAY REPORT', () => {
     before('Login as admin', () => {
         browser.url(URL_LOGIN);
-        $('form input[name="email"]').setValue('ymd@list.ru');
-        $('form input[name="password"]').setValue('123000');
-        $('form button[type="submit"]').click();
+        $(selectors.login.email).setValue(admin.email);
+        $(selectors.login.password).setValue(admin.password);
+        $(selectors.login.submitButton).click();
         browser.pause(1000);
     });
 
   it('should have the correct title', () => {
-      browser.url('https://stage.pasv.us/diary/create');
+      browser.url(pageDayReportCreate.url);
       browser.pause(2000);
-      expect($('h1').getText()).equal('Create day report');
+      expect($(selectors.pageDayReportCreate.h1).getText()).equal(pageDayReportCreate.h1);
   });
 
   it('should mark needed checkboxes from "Marks to your daily report"', () => {
-        $('input[label="I understood everything"]').click();
-        $('input[label="Watched lectures"]').click();
-        $('input[label="Read documentation"]').click();
-        $('input[label="Code practice"]').click();
-        $('input[label="Quiz practice"]').click();
+        $(selectors.pageDayReportCreate.iUnderstoodEverything).click();
+        $(selectors.pageDayReportCreate.watchedLectures).click();
+        $(selectors.pageDayReportCreate.readDocumentation).click();
+        $(selectors.pageDayReportCreate.codePractice).click();
+        $(selectors.pageDayReportCreate.quizPractice).click();
     });
   it('should choose "What is your morale?" from dropdown menu', () => {
-        $('select[name="morale"]').selectByVisibleText('7');
+        $(selectors.pageDayReportCreate.morale).selectByVisibleText('7');
     });
 
     it('should fill "How many hours did you study/practice today?" box', () => {
-        $('input[name="hours"]').click();
-        $('input[name="hours"]').setValue(5);
+        $(selectors.pageDayReportCreate.hoursPractice).click();
+        $(selectors.pageDayReportCreate.hoursPractice).setValue(5);
     });
 
     it('should fill "How was your day" box', () => {
-        $('textarea[name="description"]').click();
-        $('textarea[name="description"]').setValue('Viewed missed lesson, solved 3 katas on CW');
+        $(selectors.pageDayReportCreate.dayDescription).click();
+        $(selectors.pageDayReportCreate.dayDescription).setValue('Viewed missed lesson, solved 3 katas on CW');
     });
 
     it('should click the Submit button', () => {
-        $('button[type="submit"]').click();
+        $(selectors.pageDayReportCreate.submitButton).click();
     });
 
-    it('should show success message "Diary created"', () => {
+    it('should show success message "Get last (50) day reports"', () => {
         browser.pause(2000);
-        expect($('h4[class="notification-title"]').getText()).equal('Diary created');
+        expect($(selectors.pageDayReportCreate.getLast50DaysReport).getText()).equal('Get last (50) day reports');
     });
 
 });
