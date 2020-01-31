@@ -1,5 +1,6 @@
 const { expect } = require('chai');
 const { URL_LOGIN } = require('./register_data');
+const {pageFlashCards, selectors, admin} = require('./data');
 
 describe('CREATE FLASH CARD', () => {
     before('Login as admin', () => {
@@ -11,32 +12,37 @@ describe('CREATE FLASH CARD', () => {
     });
 
     it('should have the correct title', () => {
-        browser.url('https://stage.pasv.us/flash');
+        browser.url(pageFlashCards.url);
         browser.pause(2000);
-        expect($('h1').getText()).equal('FlashCards');
+        expect($(selectors.pageFlashCards.h1).getText()).equal(pageFlashCards.h1);
     });
 
     it('should click the "Create new FlashGroup" button', () => {
-        $('button[qa="flash-create-new-group"]').click();
+        $(selectors.pageFlashCards.createButton).click();
         browser.pause(3000);
     });
 
-    // it('should open a new modal window with correct title', () => {
-    //     expect($('h5[class="modal-title"]')).equal('Create Flash Group\n');
-    // });
+    it('should open a new modal window with correct title', () => {
+        expect($(selectors.pageFlashCards.modalWindowTitle).getText()).equal(pageFlashCards.createFlashGroup);
+    });
 
     it('should fill "Group name" field', () => {
-        $('input[name="name"]').setValue('QA Basics');
+        $(selectors.pageFlashCards.groupNameField).setValue(pageFlashCards.groupName);
     });
 
     it('should fill "Group description" field', () => {
-        $('input[name="description"]').setValue('Shows basic knowledge in QA');
+        $(selectors.pageFlashCards.groupDescriptionField).setValue(pageFlashCards.groupDescription);
     });
 
     it('should click the Create button', () => {
-        $('button[class="btn btn-primary"]').click();
+        $(selectors.pageFlashCards.confirmButton).click();
         browser.pause(3000);
     });
+
+    it('should show confirmation message', () => {
+       expect($(selectors.pageFlashCards.notificationTitle).getText()).equal(pageFlashCards.getAllFlashCardsGroup)
+    });
+
 
 });
 

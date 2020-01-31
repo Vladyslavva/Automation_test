@@ -23,6 +23,15 @@ const selectors = {
         submitButton: 'button[type="submit"]',
         getLast50DaysReport: 'h4[class="notification-title"]',
     },
+    pageFlashCards: {
+        h1: 'h1',
+        createButton: 'button[qa="flash-create-new-group"]',
+        modalWindowTitle: 'h5[class="modal-title"]',
+        groupNameField: 'input[name="name"]',
+        groupDescriptionField: 'input[name="description"]',
+        confirmButton: 'button[class="btn btn-primary"]',
+        notificationTitle: 'h4[class="notification-title"]',
+    }
 };
 
 const pageDayReportCreate = {
@@ -30,6 +39,17 @@ const pageDayReportCreate = {
     h1: 'Create day report',
 };
 
+const pageFlashCards = {
+    url: 'https://stage.pasv.us/flash',
+    h1: 'FlashCards',
+    createFlashGroup: 'Create Flash Group',
+    groupName: 'QA Basics',
+    groupDescription: 'Shows basic knowledge in QA',
+    getAllFlashCardsGroup: 'Get all Flash cards groups',
+
+};
 
 
-module.exports = {admin, selectors, pageDayReportCreate};
+
+
+module.exports = {admin, selectors, pageDayReportCreate, pageFlashCards};
