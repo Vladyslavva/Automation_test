@@ -5,9 +5,9 @@ const {pageFlashCards, selectors, admin} = require('./data');
 describe('CREATE FLASH CARD', () => {
     before('Login as admin', () => {
         browser.url(URL_LOGIN);
-        $('form input[name="email"]').setValue('ymd@list.ru');
-        $('form input[name="password"]').setValue('123000');
-        $('form button[type="submit"]').click();
+        $(selectors.login.email).setValue(admin.email);
+        $(selectors.login.password).setValue(admin.password);
+        $(selectors.login.submitButton).click();
         browser.pause(1000);
     });
 
@@ -42,7 +42,6 @@ describe('CREATE FLASH CARD', () => {
     it('should show confirmation message', () => {
        expect($(selectors.pageFlashCards.notificationTitle).getText()).equal(pageFlashCards.getAllFlashCardsGroup)
     });
-
 
 });
 

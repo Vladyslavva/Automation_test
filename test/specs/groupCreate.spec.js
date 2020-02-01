@@ -1,41 +1,43 @@
 const { expect } = require('chai');
 const { URL_LOGIN } = require('./register_data');
+const {selectors, admin, groupCreate} = require('./data');
 
 describe('CREATE GROUP', () => {
     before('Login as admin', () => {
         browser.url(URL_LOGIN);
-        $('form input[name="email"]').setValue('ymd@list.ru');
-        $('form input[name="password"]').setValue('123000');
-        $('form button[type="submit"]').click();
+        $(selectors.login.email).setValue(admin.email);
+        $(selectors.login.password).setValue(admin.password);
+        $(selectors.login.submitButton).click();
         browser.pause(1000);
     });
 
+
     it('should have the correct title', () => {
-        browser.url('https://stage.pasv.us/group/create');
+        browser.url(groupCreate.url);
         browser.pause(2000);
-       expect($('h1').getText()).equal('Create new Group');
+       expect($(selectors.groupCreate.h1).getText()).equal(groupCreate.h1);
     });
 
     it('should fill "Group name" field', () => {
-        $('input[name="name"]').setValue('QA 10');
+        $(selectors.groupCreate.groupNameField).setValue(groupCreate.groupName);
     });
 
     it('should choose "Access type" from dropdown menu', () => {
-        $('select[name="accessType"]').selectByVisibleText('All');
+        $(selectors.groupCreate.accessType).selectByVisibleText(groupCreate.accessType);
     });
 
     it('should fill "Group description" field', () => {
-        $('input[name="description"]').setValue('Занятия проходят по ссылке https://zoom.us/');
+        $(selectors.groupCreate.groupDescription).setValue(groupCreate.groupDescription);
     });
 
     it('should click the Create button', () => {
-        $('button[type="submit"]').click();
+        $(selectors.groupCreate.createButton).click();
         browser.pause(5000);
     });
 
     it('should show success message "Group created"', () => {
         browser.pause(2000);
-        expect($('h4[class="notification-title"]').getText()).equal('Group created');
+        expect($(selectors.groupCreate.messageGroupCreated).getText()).equal(groupCreate.notification);
     });
 
 });

@@ -31,7 +31,15 @@ const selectors = {
         groupDescriptionField: 'input[name="description"]',
         confirmButton: 'button[class="btn btn-primary"]',
         notificationTitle: 'h4[class="notification-title"]',
-    }
+    },
+    groupCreate: {
+        h1: 'h1',
+        groupNameField: 'input[name="name"]',
+        accessType: 'select[name="accessType"]',
+        groupDescription: 'input[name="description"]',
+        createButton: 'button[type="submit"]',
+        messageGroupCreated: 'h4[class="notification-title"]',
+    },
 };
 
 const pageDayReportCreate = {
@@ -49,7 +57,16 @@ const pageFlashCards = {
 
 };
 
+const groupCreate = {
+    url: 'https://stage.pasv.us/group/create',
+    h1: 'Create new Group',
+    groupName : 'QA 10',
+    accessType: 'All',
+    groupDescription: 'Занятия проходят по ссылке https://zoom.us/',
+    notification: 'Group created'
+};
 
 
 
-module.exports = {admin, selectors, pageDayReportCreate, pageFlashCards};
+
+module.exports = {admin, selectors, pageDayReportCreate, pageFlashCards, groupCreate};
