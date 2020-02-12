@@ -3,12 +3,20 @@ const admin = {
     email: 'ymd@list.ru',
     password: '123000'
 };
+const student = {
+    email: 'test@gmail.com',
+    password: '123567'
+};
 
 const selectors = {
     login: {
         email: 'form input[name="email"]',
         password: 'form input[name="password"]',
         submitButton: 'form button[type="submit"]',
+    },
+    logout: {
+        dropDown: '//a[@class="dropdown-toggle nav-link"]',
+        logout: '//button[contains(text(),"Logout")]',
     },
     pageDayReportCreate: {
         h1: 'h1',
@@ -67,6 +75,4 @@ const groupCreate = {
 };
 
 
-
-
-module.exports = {admin, selectors, pageDayReportCreate, pageFlashCards, groupCreate};
+module.exports = {admin, selectors, pageDayReportCreate, pageFlashCards, groupCreate, student};

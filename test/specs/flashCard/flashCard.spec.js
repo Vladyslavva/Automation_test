@@ -1,8 +1,8 @@
 const { expect } = require('chai');
-const { URL_LOGIN } = require('./register_data');
-const {pageFlashCards, selectors, admin} = require('./data');
+const { URL_LOGIN } = require('../user/register_data');
+const {pageFlashCards, selectors, admin} = require('../data');
 
-describe('CREATE FLASH CARD', () => {
+describe('FLASH GROUP CREATE', () => {
     before('Login as admin', () => {
         browser.url(URL_LOGIN);
         $(selectors.login.email).setValue(admin.email);

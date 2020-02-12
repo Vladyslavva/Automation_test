@@ -25,15 +25,15 @@ const pageRegister = {
 const pageRegisterSelectors = {
     h1: 'h1',
     description: 'p',
-    submitButton: 'form button[type="submit"]',
-    firstNameInput: 'form input[name="firstName"]',
-    lastNameInput: 'form input[name="lastName"]',
-    phoneInput: 'form input[name="phone"]',
-    emailInput: 'form input[name="email"]',
-    passwordInput: 'form input[name="password"]',
-    aboutInput: 'form textarea[name="about"]',
-    goalsInput: 'form textarea[name="goals"]',
-    englishLevelInput: 'form select[name="englishLevel"]',
+    submitButton: '//button[@type="submit"]',
+    firstNameInput: '//input[@name="firstName"]',
+    lastNameInput: '//input[@name="lastName"]',
+    phoneInput: '//input[@name="phone"]',
+    emailInput: '//input[@name="email"]',
+    passwordInput: '//input[@name="password"]',
+    aboutInput: '//textarea[@name="about"]',
+    goalsInput: '//textarea[@name="goals"]',
+    englishLevelInput: '//select[@name="englishLevel"]',
 };
 
 const pageLogin = {

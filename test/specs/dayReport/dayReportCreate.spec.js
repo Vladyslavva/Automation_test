@@ -1,6 +1,6 @@
 const { expect } = require('chai');
-const { URL_LOGIN } = require('./register_data');
-const {admin, selectors, pageDayReportCreate} = require('./data');
+const { URL_LOGIN } = require('../user/register_data');
+const {admin, selectors, pageDayReportCreate} = require('../data');
 
 describe('CREATE DAY REPORT', () => {
     before('Login as admin', () => {

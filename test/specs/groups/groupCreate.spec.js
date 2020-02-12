@@ -1,16 +1,12 @@
 const { expect } = require('chai');
-const { URL_LOGIN } = require('./register_data');
-const {selectors, admin, groupCreate} = require('./data');
+const { URL_LOGIN } = require('../user/register_data');
+const {selectors, admin, groupCreate} = require('../data');
+const {login} = require('../user/actions')
 
 describe('CREATE GROUP', () => {
     before('Login as admin', () => {
-        browser.url(URL_LOGIN);
-        $(selectors.login.email).setValue(admin.email);
-        $(selectors.login.password).setValue(admin.password);
-        $(selectors.login.submitButton).click();
-        browser.pause(1000);
+        if (!login('admin')) expect.fail('wrong credentials');
     });
-
 
     it('should have the correct title', () => {
         browser.url(groupCreate.url);
