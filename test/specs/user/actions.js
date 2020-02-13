@@ -31,7 +31,7 @@ function logout () {
     browser.pause(1000);
     $(selectors.logout.logout).click();
     browser.pause(1000);
-}
+};
 
 
 
