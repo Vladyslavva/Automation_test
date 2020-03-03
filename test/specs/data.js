@@ -74,5 +74,4 @@ const groupCreate = {
     notification: 'Group created'
 };
 
-
 module.exports = {admin, selectors, pageDayReportCreate, pageFlashCards, groupCreate, student};
